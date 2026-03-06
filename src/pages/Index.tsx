@@ -53,7 +53,7 @@ const Index = () => {
   const features = isInstitutional ? institutionalFeatures : retailFeatures;
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className={`min-h-screen bg-background text-foreground ${isInstitutional ? "theme-institutional" : ""}`}>
       {/* Nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -105,7 +105,7 @@ const Index = () => {
               onClick={() => setIsInstitutional(true)}
               className={`flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 isInstitutional
-                  ? "bg-accent text-accent-foreground shadow-lg shadow-accent/25"
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/25"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
@@ -141,12 +141,12 @@ const Index = () => {
           <div
             className={`relative p-8 rounded-2xl border transition-all duration-500 cursor-pointer ${
               isInstitutional
-                ? "border-accent/40 bg-accent/5 shadow-[0_0_40px_-12px_hsl(var(--accent)/0.3)]"
+                ? "border-primary/40 bg-primary/5 shadow-[0_0_40px_-12px_hsl(var(--primary)/0.3)]"
                 : "border-border bg-card hover:border-border/80"
             }`}
             onClick={() => setIsInstitutional(true)}
           >
-            <div className={`inline-flex p-3 rounded-xl mb-4 ${isInstitutional ? "bg-accent/15 text-accent" : "bg-secondary text-muted-foreground"}`}>
+            <div className={`inline-flex p-3 rounded-xl mb-4 ${isInstitutional ? "bg-primary/15 text-primary" : "bg-secondary text-muted-foreground"}`}>
               <Building2 className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold mb-2">Institutional Client</h3>
@@ -160,7 +160,7 @@ const Index = () => {
       {/* Features Grid */}
       <section className="max-w-7xl mx-auto px-6 pb-24">
         <div className="text-center mb-12">
-          <p className={`font-mono text-sm tracking-widest uppercase mb-3 ${isInstitutional ? "text-accent" : "text-primary"}`}>
+          <p className="font-mono text-sm tracking-widest uppercase mb-3 text-primary">
             {isInstitutional ? "Institutional Solutions" : "Built for Traders"}
           </p>
           <h2 className="text-3xl md:text-4xl font-bold">
@@ -175,7 +175,7 @@ const Index = () => {
               className="group p-8 rounded-2xl border border-border bg-card hover:border-primary/30 transition-all duration-300 animate-in fade-in slide-in-from-bottom-4"
               style={{ animationDelay: `${i * 100}ms`, animationFillMode: "both" }}
             >
-              <div className={`inline-flex p-3 rounded-xl mb-4 ${isInstitutional ? "bg-accent/10 text-accent" : "bg-primary/10 text-primary"}`}>
+              <div className="inline-flex p-3 rounded-xl mb-4 bg-primary/10 text-primary">
                 {feature.icon}
               </div>
               <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
@@ -186,11 +186,7 @@ const Index = () => {
 
         {/* CTA */}
         <div className="mt-16 text-center">
-          <button className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 ${
-            isInstitutional
-              ? "bg-accent text-accent-foreground hover:shadow-[0_0_30px_-5px_hsl(var(--accent)/0.5)]"
-              : "bg-primary text-primary-foreground hover:shadow-[0_0_30px_-5px_hsl(var(--primary)/0.5)]"
-          }`}>
+          <button className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-semibold transition-all duration-300 bg-primary text-primary-foreground hover:shadow-[0_0_30px_-5px_hsl(var(--primary)/0.5)]">
             {isInstitutional ? "Contact Sales" : "Start Trading Now"}
             <ArrowRight className="w-5 h-5" />
           </button>
