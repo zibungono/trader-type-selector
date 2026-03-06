@@ -79,13 +79,20 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-36 text-center">
-          <p className="text-primary font-mono text-sm tracking-widest uppercase mb-4">Next-Generation Trading</p>
+          <p className="text-primary font-mono text-sm tracking-widest uppercase mb-4">
+            {isInstitutional ? "Institutional-Grade Solutions" : "Next-Generation Trading"}
+          </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] mb-6">
-            Trade the World's<br />
-            <span className="text-primary">Markets</span> Your Way
+            {isInstitutional ? (
+              <>Powering the World's<br /><span className="text-primary">Largest</span> Institutions</>
+            ) : (
+              <>Trade the World's<br /><span className="text-primary">Markets</span> Your Way</>
+            )}
           </h1>
           <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-10">
-            Whether you're an individual investor or managing billions, ApexTrade delivers the technology, liquidity, and support you need.
+            {isInstitutional
+              ? "Deep liquidity, custom API access, and dedicated support for hedge funds, asset managers, and corporate treasuries."
+              : "Powerful tools, competitive spreads, and an intuitive platform — everything you need to trade stocks, forex, crypto, and more."}
           </p>
 
           {/* Toggle */}
